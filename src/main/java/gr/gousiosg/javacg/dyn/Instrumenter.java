@@ -109,7 +109,8 @@ public class Instrumenter implements ClassFileTransformer {
 
         for (Pattern p : pkgIncl) {
             Matcher m = p.matcher(name);
-            if (m.matches()) {
+            if (true) {
+	    //if (m.matches()) {
                 enhanceClass = true;
                 break;
             }
@@ -176,6 +177,6 @@ public class Instrumenter implements ClassFileTransformer {
     }
 
     private static void err(String msg) {
-        //System.err.println("[JAVACG-DYN] " + msg);
+        System.err.println("[JAVACG-DYN] " + msg);
     }
 }
