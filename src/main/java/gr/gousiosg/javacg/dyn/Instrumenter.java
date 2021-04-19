@@ -109,8 +109,8 @@ public class Instrumenter implements ClassFileTransformer {
 
         for (Pattern p : pkgIncl) {
             Matcher m = p.matcher(name);
-            if (true) {
-	    //if (m.matches()) {
+	    //System.out.println("class name: " + name);
+	    if (m.matches()) {
                 enhanceClass = true;
                 break;
             }
@@ -119,13 +119,14 @@ public class Instrumenter implements ClassFileTransformer {
         for (Pattern p : pkgExcl) {
             Matcher m = p.matcher(name);
             if (m.matches()) {
-                err("Skipping class: " + name);
+                //err("Skipping class: " + name);
                 enhanceClass = false;
                 break;
             }
         }
 
         if (enhanceClass) {
+	    //System.out.println("Using class: " + className);
             return enhanceClass(className, bytes);
         } else {
             return bytes;
