@@ -15,3 +15,6 @@ bin/
 .idea/
 *.iml
 
+## Fork edits
+benchmarks.jar
+*.log
